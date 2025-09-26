@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KarenHolyBible</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<script>
+  const elements = document.querySelectorAll('.fade-in, .fade-in-up');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.animationPlayState = 'running';
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  elements.forEach(el => {
+    el.style.animationPlayState = 'paused'; // Pause until in view
+    observer.observe(el);
+  });
+</script>
+
+<body>
+
+  <header class="fade-in">
+    <nav>
+      <div class="logo">KarenHolyBible</div>
+      <a href="https://apps.apple.com/us/app/karen-holy-bible/id1512686987" class="btn">Download</a>
+    </nav>
+  </header>
+
+ <section class="hero fade-in-up">
+  <div class="hero-content">
+    <div class="hero-text">
+      <h1>ကညီလံာ်စီဆှံ App</h1>
+      <p>Thy word is a lamp unto my feet, and a light unto my path - Psalm 119:105 <br> နကလုၢ်ကထါန့ၢ်မ့ၢ် မ့ၢ်အူဒၢတဖျၢၣ်လၢယခီၣ်အဂီၢ် ဒီးတၢ်ကပီၤတဖျၢၣ်လၢယကျဲအဂီၢ်လီၤ - စံးထီၣ်ပတြၢၤ ၁၁၉း၁ဝ၅</p>
+      <div class="cta-buttons">
+        <a href="https://apps.apple.com/us/app/karen-holy-bible/id1512686987" class="btn primary">Download</a>
+        <a href="#" class="btn secondary">Features</a>
+      </div>
+    </div>
+    <div class="hero-image-container">
+      <img src="screenshot.png" alt="App Screenshot" class="hero-image"/>
+    </div>
+  </div>
+</section>
+
+
+  <!-- 💡 New Feature Section -->
+  <section class="features fade-in-up">
+    <div class="feature">
+      <h3>📚 Read</h3>
+      <p>နဖးဒီးဒိကနၣ်လံာ်စီဆှံသ့ဝဲ, ထိၣ်သတြီၤဒီးလံာ်စီဆှံလၢကညီခ့ခါကျိာ်, ပယီၤကျိာ်, ကိာ်လာ်ဝါကျိာ်, ကၠီၣ်တဲၣ်ကျိာ်. တၢ်ဖးခီလံာ်စီဆှံစ့ၢ်ကီးအိၣ်ဝဲန့ၣ်လီီၤ</p>
+    </div>
+    <div class="feature">
+      <h3>🔍 Search for words</h3>
+      <p>ကွၢ်ဃုလံာ်မဲာ်ဖျၢၣ်သ့ၣ်တဖၣ်လၢသးလီဃုထံၣ်</p>
+    </div>
+    <div class="feature">
+      <h3>💾 Save</h3>
+      <p>ပာ်ဃာ်လံာ်စီဆှံအဆၢဖိသ့ၣ်တဖၣ်လၢနအဲၣ်ဒိးကွၢ်က့ၤလၢခံအဂီၢ်</p>
+    </div>
+
+    <div class="feature">
+      <h3>📍 Locations [Future]</h3>
+      <p>တၢ်လီၢ်တၢ်ကျဲလၢခ့ခါဆၢကတီၢ်ခဲအံၤဃုာ်ဒီးတၢ်ဂီၢ် ဒီးဟီၣ်ခိၣ်ဂီၤ</p>
+    </div>
+  </section>
+
+  <footer class="fade-in">
+    <p>&copy; 2025 KarenHolyBible. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
