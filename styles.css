@@ -1,5 +1,5 @@
 /* ----------------------------
-  Base Reset
+  Reset + Base
 ---------------------------- */
 * {
   margin: 0;
@@ -7,13 +7,25 @@
   box-sizing: border-box;
 }
 
+html { scroll-behavior: smooth; }
+
 body {
   font-family: 'Helvetica Neue', sans-serif;
   line-height: 1.6;
   background: #fff;
   color: #111;
   overflow-x: hidden;
-  scroll-behavior: smooth;
+}
+
+/* Shared section style */
+section {
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+section + section {
+  margin-top: 2rem;
 }
 
 /* ----------------------------
@@ -23,22 +35,15 @@ body {
   opacity: 0;
   animation: fadeIn 1s ease-in-out forwards;
 }
+
 .fade-in-up {
   opacity: 0;
   transform: translateY(20px);
   animation: fadeInUp 1s ease-out forwards;
 }
 
-@keyframes fadeIn {
-  to { opacity: 1; }
-}
-
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+@keyframes fadeIn { to { opacity: 1; } }
+@keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
 
 header { animation-delay: 0.2s; }
 .hero { animation-delay: 0.4s; }
@@ -102,12 +107,10 @@ nav {
 }
 
 /* ----------------------------
-  Hero Section (Two Columns)
+  Hero Section
 ---------------------------- */
 .hero {
-  padding: 4rem 2rem;
-  max-width: 1200px;
-  margin: auto;
+  padding: 6rem 2rem;
 }
 
 .hero-content {
@@ -137,6 +140,7 @@ nav {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
+  align-items: flex-start; 
 }
 
 .hero-image-container {
@@ -153,9 +157,7 @@ nav {
   transition: transform 0.4s ease;
 }
 
-.hero-image:hover {
-  transform: scale(1.02);
-}
+.hero-image:hover { transform: scale(1.02); }
 
 /* ----------------------------
   Features Section
@@ -164,11 +166,9 @@ nav {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 2rem;
-  padding: 4rem 2rem;
-  max-width: 1000px;
-  margin: auto;
   text-align: center;
   background: #f9f9f9;
+  border-radius: 12px;
 }
 
 .feature h3 {
@@ -182,6 +182,60 @@ nav {
 }
 
 /* ----------------------------
+  Reviews Section
+---------------------------- */
+.reviews {
+  background: #f9f9f9;
+  text-align: center;
+  border-radius: 12px;
+}
+
+.reviews h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.reviews-container {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  scroll-snap-type: x mandatory;
+  padding: 1rem;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+
+.reviews-container::-webkit-scrollbar { display: none; }
+
+.review {
+  flex: 0 0 300px;
+  scroll-snap-align: start;
+  background: #fff;
+  border-left: 4px solid #6b4fbb;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  border-radius: 8px;
+  min-height: 180px;
+  text-align: left;
+}
+
+.review p {
+  font-style: italic;
+  color: #555;
+}
+
+.review span {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+  color: #333;
+}
+
+
+
+
+/* ----------------------------
   Footer
 ---------------------------- */
 footer {
@@ -191,32 +245,48 @@ footer {
   font-size: 0.9rem;
   border-top: 1px solid #eee;
   background: #fff;
+  margin-top: 2rem;
 }
 
 /* ----------------------------
-  Responsive Design
+  Responsive
 ---------------------------- */
 @media (max-width: 768px) {
-  .hero-content {
-    /* flex-direction: column; */
-    text-align: center;
-  }
+  .hero-content { text-align: center; }
+  .hero-text h1 { font-size: 2rem; }
+  .cta-buttons { flex-direction: column; align-items: center; }
+  .btn { width: 100%; text-align: center; }
+  .secondary { margin-left: 0; }
+}
 
-  .hero-text h1 {
-    font-size: 2rem;
-  }
+/* App icon in navbar */
+.app-icon-link {
+  display: inline-flex;
+  align-items: center;
+}
 
-  .cta-buttons {
-    flex-direction: column;
-    align-items: center;
-  }
+.app-icon {
+  width: 100px;
+  height: 100px;
+  border-radius: 25px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  transition: transform 0.2s ease;
+}
 
-  .btn {
-    width: 100%;
-    text-align: center;
-  }
+.app-icon:hover {
+  transform: scale(1.05);
+}
 
-  .secondary {
-    margin-left: 0;
-  }
+.app-store-link {
+  display: inline-block;
+}
+
+.app-store-badge {
+  height: 50px;  /* slightly larger in hero */
+  width: auto;
+  transition: transform 0.3s ease;
+}
+
+.app-store-badge:hover {
+  transform: scale(1.05);
 }
