@@ -33,7 +33,7 @@
           <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" 
                alt="Download on the App Store" class="app-store-badge">
         </a>
-          <a href="#feature" class="btn secondary">Learn More</a>
+          <a href="#discover" class="btn secondary">Learn More</a>
         </div>
       </div>
       <div class="hero-image-container">
@@ -42,10 +42,41 @@
     </div>
   </section>
 
-  <!-- Features -->
-  <section class="features fade-in-up" id="feature">
-   <div class="feature" id="feature"> <h3>📚 Read</h3> <p>နဖးဒီးဒိကနၣ်လံာ်စီဆှံသ့ဝဲ, ထိၣ်သတြီၤဒီးလံာ်စီဆှံလၢကညီခ့ခါကျိာ်, ပယီၤကျိာ်, ကိာ်လာ်ဝါကျိာ်, ကၠီၣ်တဲၣ်ကျိာ်. တၢ်ဖးခီလံာ်စီဆှံစ့ၢ်ကီးအိၣ်ဝဲန့ၣ်လီီၤ</p> </div> <div class="feature"> <h3>🔍 Search for words</h3> <p>ကွၢ်ဃုလံာ်မဲာ်ဖျၢၣ်သ့ၣ်တဖၣ်လၢသးလီဃုထံၣ်</p> </div> <div class="feature"> <h3>💾 Save</h3> <p>ပာ်ဃာ်လံာ်စီဆှံအဆၢဖိသ့ၣ်တဖၣ်လၢနအဲၣ်ဒိးကွၢ်က့ၤလၢခံအဂီၢ်</p> </div> <div class="feature"> <h3>📍 Locations [Future]</h3> <p>တၢ်လီၢ်တၢ်ကျဲလၢခ့ခါဆၢကတီၢ်ခဲအံၤဃုာ်ဒီးတၢ်ဂီၢ် ဒီးဟီၣ်ခိၣ်ဂီၤ</p> </div>
-  </section>
+<!-- Interactive Feature Preview -->
+<section class="interactive-section fade-in-up" id="discover">
+  <div class="interactive-container">
+
+    <div class="interactive-right">
+      <img src="read.png" alt="Feature Preview" id="featurePreview" class="feature-image" />
+    </div>
+    
+    <div class="interactive-left">
+      <h2>Discover the Karen Holy Bible App</h2>
+      <p>Select a feature to see how it works:</p>
+      <ul class="feature-list">
+        <li class="feature-item active" data-image="read.png">
+          <div class="feature-title">📚 Read the Bible</div>
+          <div class="feature-subtitle">နဖးဒီးဒိကနၣ်လံာ်စီဆှံသ့ဝဲ, ထိၣ်သတြီၤဒီးလံာ်စီဆှံလၢကညီခ့ခါကျိာ်, ပယီၤကျိာ်, ကိာ်လာ်ဝါကျိာ်, ကၠီၣ်တဲၣ်ကျိာ်. တၢ်ဖးခီလံာ်စီဆှံစ့ၢ်ကီးအိၣ်ဝဲန့ၣ်လီီၤ</div>
+        </li>
+        <li class="feature-item" data-image="search.png">
+          <div class="feature-title">🔍 Search for words</div>
+          <div class="feature-subtitle">ကွၢ်ဃုလံာ်မဲာ်ဖျၢၣ်သ့ၣ်တဖၣ်လၢသးလီဃုထံၣ်</div>
+        </li>
+        <li class="feature-item" data-image="save.png">
+          <div class="feature-title">💾 Save favorites</div>
+          <div class="feature-subtitle">ပာ်ဃာ်လံာ်စီဆှံအဆၢဖိသ့ၣ်တဖၣ်လၢနအဲၣ်ဒိးကွၢ်က့ၤလၢခံအဂီၢ်</div>
+        </li>
+        <li class="feature-item" data-image="map.png">
+          <div class="feature-title">📍 Bible Locations (Coming Soon)</div>
+          <div class="feature-subtitle">တၢ်လီၢ်တၢ်ကျဲလၢခ့ခါဆၢကတီၢ်ခဲအံၤဃုာ်ဒီးတၢ်ဂီၢ် ဒီးဟီၣ်ခိၣ်ဂီၤ</div>
+        </li>
+      </ul>
+    </div>
+
+    
+  </div>
+</section>
+
 
   <!-- Reviews -->
   <section class="reviews fade-in-up">
@@ -97,6 +128,27 @@
     }
 
     setInterval(autoScrollReviews, 4000);
+
+    // Interactive feature switcher
+const featureItems = document.querySelectorAll('.feature-item');
+const featurePreview = document.getElementById('featurePreview');
+
+featureItems.forEach(item => {
+  item.addEventListener('click', () => {
+    // Update active state
+    featureItems.forEach(i => i.classList.remove('active'));
+    item.classList.add('active');
+
+    // Change image
+    const newImage = item.getAttribute('data-image');
+    featurePreview.style.opacity = 0;
+    setTimeout(() => {
+      featurePreview.src = newImage;
+      featurePreview.style.opacity = 1;
+    }, 300);
+  });
+});
+
   </script>
 </body>
 </html>
