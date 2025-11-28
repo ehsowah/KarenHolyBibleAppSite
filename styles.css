@@ -385,3 +385,35 @@ footer {
     justify-content: center;
   }
 }
+
+.stars {
+  color: #f5b301; /* gold */
+  font-size: 18px;
+  margin-bottom: 8px;
+  letter-spacing: 2px;
+}
+
+.appstore-button-wrap {
+  margin-top: 35px;
+  text-align: center;
+}
+
+.appstore-review-btn {
+  display: inline-block;
+  padding: 12px 26px;
+  border-radius: 30px;
+  background: #000;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.appstore-review-btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+.live-reviews-widget {
+  margin-top: 60px;
+}
