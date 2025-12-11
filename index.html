@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>KarenHolyBible</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes"/>
+  <meta name="description" content="Karen Holy Bible App - Read, search, and save your favorite Bible verses in Karen language" />
+  <title>KarenHolyBible - Karen Holy Bible App</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -63,7 +64,11 @@
 
       </div>
       <div class="hero-image-container">
-        <img src="screenshot.png" alt="App Screenshot" class="hero-image"/>
+        <video autoplay loop muted playsinline preload="auto" class="hero-video" poster="screenshot.png">
+          <source src="homeViewDifferentOptions.MP4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <img src="screenshot.png" alt="App Screenshot" class="hero-image" style="display: none;"/>
       </div>
     </div>
   </section>
@@ -73,27 +78,31 @@
   <div class="interactive-container">
 
     <div class="interactive-right">
-      <img src="read.png" alt="Feature Preview" id="featurePreview" class="feature-image" />
+      <video autoplay loop muted playsinline preload="auto" id="featurePreview" class="feature-video" poster="read.png">
+        <source src="homeViewDifferentOptions.MP4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <img src="read.png" alt="Feature Preview" class="feature-image" style="display: none;" />
     </div>
     
     <div class="interactive-left">
       <h2>Discover the Karen Holy Bible App</h2>
       <p>Select a feature to see how it works:</p>
-      <ul class="feature-list">
-        <li class="feature-item active" data-image="read.png">
+      <ul class="feature-list" role="list">
+        <li class="feature-item active" data-video="homeViewDifferentOptions.MP4" data-poster="read.png">
           <div class="feature-title">📚 Read the Bible</div>
           <div class="feature-subtitle">နဖးဒီးဒိကနၣ်လံာ်စီဆှံသ့ဝဲ, ထိၣ်သတြီၤဒီးလံာ်စီဆှံလၢကညီခ့ခါကျိာ်, ပယီၤကျိာ်, ကိာ်လာ်ဝါကျိာ်, ကၠီၣ်တဲၣ်ကျိာ်. တၢ်ဖးခီလံာ်စီဆှံစ့ၢ်ကီးအိၣ်ဝဲန့ၣ်လီီၤ</div>
         </li>
-        <li class="feature-item" data-image="search.png">
+        <li class="feature-item" data-video="searchword.MP4" data-poster="search.png">
           <div class="feature-title">🔍 Search for words</div>
           <div class="feature-subtitle">ကွၢ်ဃုလံာ်မဲာ်ဖျၢၣ်သ့ၣ်တဖၣ်လၢသးလီဃုထံၣ်</div>
         </li>
-        <li class="feature-item" data-image="save.png">
+        <li class="feature-item" data-video="savefavorite.MP4" data-poster="save.png">
           <div class="feature-title">💾 Save favorites</div>
           <div class="feature-subtitle">ပာ်ဃာ်လံာ်စီဆှံအဆၢဖိသ့ၣ်တဖၣ်လၢနအဲၣ်ဒိးကွၢ်က့ၤလၢခံအဂီၢ်</div>
         </li>
-        <li class="feature-item" data-image="map.png">
-          <div class="feature-title">📍 Bible Locations (Coming Soon)</div>
+        <li class="feature-item" data-video="locationInfo.MP4" data-poster="map.png">
+          <div class="feature-title">📍 Bible Locations</div>
           <div class="feature-subtitle">တၢ်လီၢ်တၢ်ကျဲလၢခ့ခါဆၢကတီၢ်ခဲအံၤဃုာ်ဒီးတၢ်ဂီၢ် ဒီးဟီၣ်ခိၣ်ဂီၤ</div>
         </li>
       </ul>
@@ -103,6 +112,81 @@
   </div>
 </section>
 
+<!-- Roadmap / To-Do Section -->
+<section class="roadmap-section fade-in-up">
+  <div class="roadmap-container">
+    <h2>Coming Soon</h2>
+    <p class="roadmap-intro">ပဂုာ်ကျဲးစၢးဒုးအိၣ်ထီၣ်တၢ်လၢနဃ့ထီၣ်သ့ၣ်တဖၣ်လၢခါဆူညါအဂီၢ်</p>
+    
+    <div class="todo-list">
+      <div class="todo-item">
+        <div class="todo-icon">📖</div>
+        <div class="todo-content">
+          <h4>NIV Translation</h4>
+          <p>Adding NIV (New International Version) as an additional translation option</p>
+        </div>
+        <div class="todo-status in-progress">
+          <span>In Progress</span>
+        </div>
+      </div>
+      
+      <div class="todo-item">
+        <div class="todo-icon">🎧</div>
+        <div class="todo-content">
+          <h4>Auto-Play Next Chapter</h4>
+          <p>Audio will automatically play the next chapter without requiring user interaction - perfect for driving</p>
+        </div>
+        <div class="todo-status in-progress">
+          <span>In Progress</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Feature Request Form -->
+    <div class="feature-request-section">
+      <h3>Suggest a Feature</h3>
+      <p class="feature-request-intro">Have an idea for a future version? We'd love to hear from you!</p>
+      
+      <form class="feature-request-form" id="featureRequestForm" action="https://formsubmit.co/ehwah.dev@gmail.com" method="POST">
+        <!-- FormSubmit configuration -->
+        <input type="hidden" name="_subject" value="New Feature Request - Karen Holy Bible App">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="">
+        <input type="text" name="_honey" style="display:none">
+        
+        <div class="form-group">
+          <label for="userName">Your Name (Optional)</label>
+          <input type="text" id="userName" name="name" placeholder="Enter your name">
+        </div>
+        
+        <div class="form-group">
+          <label for="userEmail">Your Email (Optional)</label>
+          <input type="email" id="userEmail" name="email" placeholder="your.email@example.com">
+        </div>
+        
+        <div class="form-group">
+          <label for="featureRequest">Feature Request *</label>
+          <textarea 
+            id="featureRequest" 
+            name="message" 
+            rows="5" 
+            placeholder="Describe the feature you'd like to see in a future version..."
+            required
+          ></textarea>
+        </div>
+        
+        <button type="submit" class="submit-btn">
+          <span>Submit Feature Request</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </button>
+        
+        <div class="form-message" id="formMessage"></div>
+      </form>
+    </div>
+  </div>
+</section>
 
   <!-- Reviews -->
  <!-- Reviews -->
@@ -241,18 +325,96 @@ featureItems.forEach(item => {
     featureItems.forEach(i => i.classList.remove('active'));
     item.classList.add('active');
 
-    // Change image
-    const newImage = item.getAttribute('data-image');
-    featurePreview.style.opacity = 0;
-    setTimeout(() => {
-      featurePreview.src = newImage;
-      featurePreview.style.opacity = 1;
-    }, 300);
+    // Change video
+    const newVideo = item.getAttribute('data-video');
+    const newPoster = item.getAttribute('data-poster');
+    
+    if (featurePreview && featurePreview.tagName === 'VIDEO') {
+      featurePreview.style.opacity = 0;
+      setTimeout(() => {
+        // Update video source
+        const source = featurePreview.querySelector('source');
+        if (source) {
+          source.src = newVideo;
+        } else {
+          featurePreview.src = newVideo;
+        }
+        featurePreview.poster = newPoster;
+        featurePreview.load(); // Reload video with new source
+        
+        // Try to play video
+        const playPromise = featurePreview.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(e => {
+            console.log('Video autoplay prevented:', e);
+            // Video will show poster image if autoplay fails
+          });
+        }
+        
+        featurePreview.style.opacity = 1;
+      }, 300);
+    }
+  });
+});
+
+// Handle video loading errors gracefully
+document.querySelectorAll('video').forEach(video => {
+  video.addEventListener('error', function() {
+    console.log('Video loading error, showing poster image');
+    const poster = this.poster;
+    if (poster) {
+      const img = document.createElement('img');
+      img.src = poster;
+      img.className = this.className.replace('video', 'image');
+      img.alt = 'App Preview';
+      this.parentNode.replaceChild(img, this);
+    }
   });
 });
 
 
   </script>
+  
+  <!-- Feature Request Form Handler -->
+  <script>
+    const featureRequestForm = document.getElementById('featureRequestForm');
+    const formMessage = document.getElementById('formMessage');
+    
+    // Get current page URL for redirect after submission
+    const currentUrl = window.location.href.split('?')[0];
+    const nextInput = featureRequestForm.querySelector('input[name="_next"]');
+    if (nextInput) {
+      nextInput.value = currentUrl + '?submitted=true';
+    }
+    
+    // Check if form was just submitted
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('submitted') === 'true') {
+      formMessage.textContent = 'Thank you for your suggestion! We\'ll review it and consider it for future updates.';
+      formMessage.className = 'form-message success';
+      formMessage.style.display = 'block';
+      
+      // Clean URL
+      window.history.replaceState({}, document.title, currentUrl);
+      
+      // Hide message after 5 seconds
+      setTimeout(() => {
+        formMessage.style.display = 'none';
+      }, 5000);
+    }
+    
+    // Show loading state on submit
+    featureRequestForm.addEventListener('submit', function(e) {
+      const submitBtn = featureRequestForm.querySelector('.submit-btn');
+      const originalText = submitBtn.innerHTML;
+      submitBtn.innerHTML = '<span>Submitting...</span>';
+      submitBtn.disabled = true;
+      
+      // Form will submit normally to FormSubmit
+      // The redirect will happen after successful submission
+    });
+  </script>
+  
   <script src='https://widgets.sociablekit.com/apple-app-store-reviews/widget.js' defer></script>
 </body>
 </html>
