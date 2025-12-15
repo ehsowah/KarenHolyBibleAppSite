@@ -188,6 +188,31 @@
   </div>
 </section>
 
+<!-- YouTube Videos Section -->
+<section class="youtube-section fade-in-up">
+  <div class="youtube-container">
+    <h2>Latest Videos</h2>
+    <!-- <h3>တၢ်ဂ့ၢ်လိာ်တဖၣ်လၢအလီၤဆီဒိၣ်မးလၢခါ</h3> -->
+    <p class="youtube-intro">Watch our latest content and tutorials about the Karen Holy Bible App</p>
+    
+    <div class="youtube-grid" id="youtubeGrid">
+      <!-- Videos will be loaded dynamically -->
+      <div class="youtube-loading">
+        <p>Loading latest videos...</p>
+      </div>
+    </div>
+    
+    <div class="youtube-channel-link">
+      <a href="https://www.youtube.com/@KarenHolyBible" target="_blank" class="youtube-btn">
+        <svg viewBox="0 0 24 24" class="youtube-btn-icon">
+          <path d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.38.55A3.02 3.02 0 0 0 .5 6.69C0 8.6 0 12 0 12s0 3.4.5 5.31a3.02 3.02 0 0 0 2.12 2.14C4.5 20 12 20 12 20s7.5 0 9.38-.55a3.02 3.02 0 0 0 2.12-2.14C24 15.4 24 12 24 12s0-3.4-.5-5.81zM9.75 15.5v-7l6 3.5-6 3.5z"/>
+        </svg>
+        <span>Visit Our YouTube Channel</span>
+      </a>
+    </div>
+  </div>
+</section>
+
   <!-- Reviews -->
  <!-- Reviews -->
 <section class="reviews fade-in-up">
@@ -413,6 +438,117 @@ document.querySelectorAll('video').forEach(video => {
       // Form will submit normally to FormSubmit
       // The redirect will happen after successful submission
     });
+  </script>
+  
+  <!-- YouTube Videos Loader -->
+  <script>
+    // YouTube Channel Handle: @KarenHolyBible
+    // Channel ID: UCRLyCcFxk9Tiusw-JRDholA
+    async function loadYouTubeVideos() {
+      const grid = document.getElementById('youtubeGrid');
+      if (!grid) return;
+      
+      const channelId = 'UCRLyCcFxk9Tiusw-JRDholA';
+      const maxVideos = 6; // Show up to 6 latest videos
+      
+      try {
+        // Use channel ID in RSS feed
+        const rssUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`;
+        const proxyUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`;
+        
+        const response = await fetch(proxyUrl);
+        
+        
+        
+        if (!response.ok) {
+          throw new Error('Failed to fetch videos');
+        }
+        
+        const data = await response.json();
+        
+        if (data.status === 'ok' && data.items && data.items.length > 0) {
+          grid.innerHTML = ''; // Clear loading message
+          
+          // Get the latest videos (up to maxVideos)
+          const videos = data.items.slice(0, maxVideos);
+          
+          videos.forEach(item => {
+            // Extract video ID from YouTube link
+            const videoId = item.link.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&\s]+)/)?.[1];
+            
+            if (videoId) {
+              const videoWrapper = document.createElement('div');
+              videoWrapper.className = 'youtube-video-wrapper';
+              videoWrapper.innerHTML = `
+                <div class="youtube-embed">
+                  <iframe 
+                    src="https://www.youtube.com/embed/${videoId}" 
+                    title="${item.title || 'YouTube video player'}" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowfullscreen>
+                  </iframe>
+                </div>
+              `;
+              grid.appendChild(videoWrapper);
+            }
+          });
+          
+          // If we successfully loaded videos, return
+          if (grid.children.length > 0) {
+            return;
+          }
+        }
+        
+        // If we get here, no videos were loaded
+        throw new Error('No videos found');
+        
+      } catch (error) {
+        console.error('Error loading YouTube videos:', error);
+        
+        // Fallback: Try alternative method or show error
+        // You can manually add video IDs here as a fallback
+        const fallbackVideoIds = [
+          // Add your video IDs here if automatic loading fails
+          // Example: 'dQw4w9WgXcQ', 'jNQXAC9IVRw', 'M7FIvfx5J10'
+          'qQbecYSAUdQ', 'jHBjijE5kCg','zZBItkjYhkU', 'RgqxlV2ZpGo', 'tX-zSU_XlyQ', 'JtjpB8hUub8'
+        ];
+        
+        if (fallbackVideoIds.length > 0) {
+          grid.innerHTML = '';
+          fallbackVideoIds.forEach(videoId => {
+            const videoWrapper = document.createElement('div');
+            videoWrapper.className = 'youtube-video-wrapper';
+            videoWrapper.innerHTML = `
+              <div class="youtube-embed">
+                <iframe 
+                  src="https://www.youtube.com/embed/${videoId}" 
+                  title="YouTube video player" 
+                  frameborder="0" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                  allowfullscreen>
+                </iframe>
+              </div>
+            `;
+            grid.appendChild(videoWrapper);
+          });
+        } else {
+          // Show error message with link to channel
+          grid.innerHTML = `
+            <div class="youtube-error">
+              <p>Unable to load videos automatically. Please visit our <a href="https://www.youtube.com/@KarenHolyBible" target="_blank">YouTube channel</a> to watch our latest content.</p>
+            </div>
+          `;
+        }
+      }
+    }
+    
+    // Load videos when page loads
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', loadYouTubeVideos);
+    } else {
+      loadYouTubeVideos();
+    }
   </script>
   
   <script src='https://widgets.sociablekit.com/apple-app-store-reviews/widget.js' defer></script>
