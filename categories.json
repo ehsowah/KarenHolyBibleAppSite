@@ -1,6 +1,6 @@
 [
   {
-    "category": "love",
+    "category": "တၢ်အဲၣ်_love",
     "verses": [
       "Gen 29:20",
       "Joh 3:16",
@@ -25,7 +25,7 @@
     ]
   },
   {
-    "category": "faith",
+    "category": "တၢ်နာ်_faith",
     "verses": [
       "Heb 11:1",
       "Heb 11:6",
@@ -50,7 +50,7 @@
     ]
   },
   {
-    "category": "hope",
+    "category": "တၢ်မုၢ်လၢ်_hope",
     "verses": [
       "Jer 29:11",
       "Rom 15:13",
@@ -75,7 +75,7 @@
     ]
   },
   {
-    "category": "unity",
+    "category": "တၢ်ဃူတၢ်ဖိး_unity",
     "verses": [
       "Psa 133:1",
       "Eph 4:3",
@@ -100,7 +100,7 @@
     ]
   },
   {
-    "category": "anxiety",
+    "category": "တၢ်ဘၣ်ယိၣ်ဘၣ်ဘှီ_anxiety",
     "verses": [
       "Php 4:6",
       "1Pe 5:7",
@@ -125,7 +125,7 @@
     ]
   },
   {
-    "category": "strength",
+    "category": "တၢ်ဂံၢ်တၢ်ဘါ_strength",
     "verses": [
       "Php 4:13",
       "Isa 40:29",
@@ -150,7 +150,7 @@
     ]
   },
   {
-    "category": "forgiveness",
+    "category": "တၢ်ပျၢ်တၢ်ကမၣ်_forgiveness",
     "verses": [
       "Eph 4:32",
       "Col 3:13",
@@ -175,7 +175,7 @@
     ]
   },
   {
-    "category": "prayer",
+    "category": "တၢ်ထုကဖၣ်_prayer",
     "verses": [
       "1Th 5:17",
       "Php 4:6",
@@ -200,7 +200,7 @@
     ]
   },
   {
-    "category": "wisdom",
+    "category": "တၢ်ကူၣ်သ့_wisdom",
     "verses": [
       "Jam 1:5",
       "Pro 1:7",
@@ -225,7 +225,7 @@
     ]
   },
   {
-    "category": "joy",
+    "category": "တၢ်သးခု_joy",
     "verses": [
       "Psa 16:11",
       "Neh 8:10",
@@ -250,7 +250,7 @@
     ]
   },
   {
-    "category": "sadness",
+    "category": "တၢ်သးအုး_sadness",
     "verses": [
       "Psa 34:18",
       "Mat 5:4",
@@ -275,7 +275,7 @@
     ]
   },
   {
-    "category": "healing",
+    "category": "တၢ်မၤဘျါ_healing",
     "verses": [
       "Jer 30:17",
       "Psa 103:2-3",
